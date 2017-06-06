@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Art Objects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Department</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @art_objects.each do |art_object| %>
+      <tr>
+        <td><%= art_object.department %></td>
+        <td><%= art_object.title %></td>
+        <td><%= link_to 'Show', art_object %></td>
+        <td><%= link_to 'Edit', edit_art_object_path(art_object) %></td>
+        <td><%= link_to 'Destroy', art_object, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h3>Import Art Objects</h3>
+<%= form_tag import_art_objects_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload Art Objects" %>
+<% end %>
+
+<%= link_to 'New Art Object', new_art_object_path %>
