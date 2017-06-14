@@ -4,7 +4,7 @@ class ArtObject < ApplicationRecord
 
 	def self.import(file)
 		CSV.foreach(file.path, headers: true) do |row|
-			ArtObject.create({department: row['Department'], title: row['Title']})
+			ArtObject.create({object_number: row['Object Number'], department: row['Department'], title: row['Title']})
 		end
 	end
 

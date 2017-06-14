@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Object Number</th>
       <th>Department</th>
       <th>Title</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @art_objects.each do |art_object| %>
       <tr>
+        <td><%= art_object.object_number %></td>
         <td><%= art_object.department %></td>
         <td><%= art_object.title %></td>
         <td><%= link_to 'Show', art_object %></td>
